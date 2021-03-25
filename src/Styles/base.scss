@@ -1,0 +1,60 @@
+@import "../Styles/variables";
+@import "../Styles/mixins";
+
+*,
+*::after,
+*::before {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.2;
+  background-color: $black;
+  color: $white;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+
+  &:active {
+    border: none;
+    outline: none;
+  }
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+}
+
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
+.app {
+  padding: 8rem 0;
+
+  @include respond(tablet) {
+    padding: 7rem 0;
+  }
+
+  @include respond(mobile) {
+    padding: 5.6rem 0;
+  }
+}
