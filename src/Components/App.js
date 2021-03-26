@@ -13,17 +13,15 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className='app'>
-        <Switch>
-          <Route path='/' exact component={Homepage} />
-          <Route path='/trendings' component={Trendings} />
-          <Route path='/movies' component={Movies} />
-          <Route path='/series' component={Series} />
-          <Route path='/persons' component={Persons} />
-          <Route path='/search' component={Search} />
-          <Route component={PageNotFound} />
-        </Switch>
-      </div>
+      <Switch>
+        <Route path='/' exact component={Homepage} />
+        <Route path='/trendings' component={Trendings} />
+        <Route path='/movies' component={Movies} />
+        <Route path='/series' component={Series} />
+        <Route path='/persons' component={Persons} />
+        <Route path='/search' component={Search} />
+        <Route component={PageNotFound} />
+      </Switch>
     </Router>
   );
 }

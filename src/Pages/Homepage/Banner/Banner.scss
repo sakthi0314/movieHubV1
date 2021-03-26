@@ -2,13 +2,7 @@
 @import "../../../Styles/variables";
 
 .banner {
-  position: relative;
   height: 100vh;
   background-position: center;
   background-size: cover;
-
-  &__content {
-    height: 80vh;
-    @include flexbox(row, flex-start, center);
-  }
 }

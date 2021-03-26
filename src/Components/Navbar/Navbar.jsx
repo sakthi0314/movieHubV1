@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
@@ -8,27 +8,29 @@ import "./Navbar.scss";
 function Navbar() {
   const [menu, setMenu] = useState(false);
   const [clip, setClip] = useState(false);
-  const [scroll, setScroll] = useState("stay");
-
-  let prevScrollpos = window.pageYOffset;
-  document.addEventListener("scroll", () => {
-    let currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      setScroll("stay");
-    } else {
-      setScroll("hide");
-    }
-    prevScrollpos = currentScrollPos;
-  });
-
+  const [show, handleShow] = useState(false);
   const handleClick = () => {
     setMenu(!menu);
     setClip(!clip);
   };
 
+  useEffect(() => {
+    window.addEventListener("scroll", handler);
+    function handler() {
+      if (window.scrollY > 100) {
+        handleShow(true);
+      } else {
+        handleShow(false);
+      }
+    }
+    return () => {
+      window.removeEventListener("scroll", handler);
+    };
+  }, []);
+
   return (
-    <nav className={`nav ${scroll}`}>
-      <div className='container'>
+    <nav className={`nav ${show && "black"}`}>
+      <div className='nav__container'>
         <div className='nav__logo'>
           <Link to='/' className='nav__logo--d'>
             TheMovieHub

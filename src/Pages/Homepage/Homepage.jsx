@@ -5,6 +5,8 @@ function Homepage() {
   return (
     <>
       <Banner />
+      <Banner />
+      <Banner />
     </>
   );
 }
