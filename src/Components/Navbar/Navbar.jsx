@@ -33,7 +33,7 @@ function Navbar() {
       <div className='nav__container'>
         <div className='nav__logo'>
           <Link to='/' className='nav__logo--d'>
-            TheMovieHub
+            MovieHub
           </Link>
         </div>
         <div className='nav__humburger' onClick={handleClick}>
