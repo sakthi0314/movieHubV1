@@ -5,7 +5,7 @@ import "./Banner.scss";
 
 function Banner() {
   const [banner, setBanner] = useState({});
-  console.log(banner);
+
   // Fetch Banner
   const fetchBanner = async () => {
     const response = await axios.get(request.fetchTrening);
@@ -25,7 +25,9 @@ function Banner() {
         style={{
           backgroundImage: `URL("${request.IMG_URL}${banner?.backdrop_path}")`,
         }}
-      ></header>
+      >
+        <div className='banner__overlay'></div>
+      </header>
     </>
   );
 }
