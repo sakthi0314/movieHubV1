@@ -6,10 +6,43 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
+  padding: 0 1rem;
 
-  &__overlay {
+  &__content {
+    height: 100vh;
+    max-width: 130rem;
+    margin: 0 auto;
+    @include flexbox(column, center, flex-start);
+
+    h1 {
+      font-size: 4.5rem;
+      line-height: 1;
+
+      @include respond(tablet) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      max-width: 50%;
+      font-size: 1.6rem;
+      font-weight: map-get($font-weight, Medium);
+      margin: 2vh 0;
+
+      @include respond(tablet) {
+        font-size: 1.4rem;
+        max-width: 70%;
+      }
+    }
+  }
+
+  &__btn {
+    @include flexbox(row, center, center);
+  }
+
+  &__ &__overlay {
     position: absolute;
-    height: 8rem;
+    height: 10rem;
     width: 100%;
     background: rgb(2, 0, 36);
     background: linear-gradient(
