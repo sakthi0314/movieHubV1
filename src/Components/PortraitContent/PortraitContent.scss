@@ -1,0 +1,61 @@
+@import "../../Styles/mixins";
+@import "../../Styles/variables";
+
+.portraitContent {
+  position: relative;
+  min-width: 20rem;
+  margin: 0 1rem;
+  text-decoration: none;
+  color: $white;
+
+  @include respond(tablet) {
+    min-width: 16rem;
+  }
+
+  &__img {
+    max-width: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    max-height: 100%;
+  }
+
+  &__title {
+    font-size: $font-sm;
+    font-weight: map-get($font-weight, bold);
+    line-height: 1;
+    padding: 1.6rem 0;
+  }
+
+  &__rating {
+    position: absolute;
+    bottom: 15%;
+    left: 4%;
+    height: 4rem;
+    width: 4rem;
+    background-color: $black;
+    border-radius: 50%;
+    border: 3px solid $Yellow;
+    @include flexbox(row, center, center);
+    margin: 1rem 0;
+
+    @include respond(tablet) {
+      bottom: 21%;
+      height: 3.4rem;
+      width: 3.4rem;
+    }
+
+    span {
+      font-weight: map-get($font-weight, bold);
+      font-size: $font-xsm;
+      color: yellow;
+    }
+  }
+}
+
+.red {
+  color: rgb(161, 0, 0) !important;
+}
+
+.redOne {
+  border: 3px solid rgb(161, 0, 0) !important;
+}

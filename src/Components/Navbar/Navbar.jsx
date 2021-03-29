@@ -32,7 +32,7 @@ function Navbar() {
     <nav className={`nav ${show && "black"}`}>
       <div className='nav__container'>
         <div className='nav__logo'>
-          <Link to='/' className='nav__logo--d'>
+          <Link to='/' className='nav__logo--d' style={{ outline: "none" }}>
             MovieHub
           </Link>
         </div>

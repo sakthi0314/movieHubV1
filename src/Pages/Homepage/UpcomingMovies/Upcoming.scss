@@ -1,0 +1,32 @@
+@import "../../../Styles/mixins";
+@import "../../../Styles/variables";
+
+.upcoming {
+  padding: 3rem 0;
+
+  @include respond(tablet) {
+    padding: 1rem 0;
+  }
+
+  &__container {
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: 2rem;
+    text-align: left;
+
+    h1 {
+      font-size: $font-l;
+      text-transform: capitalize;
+    }
+  }
+
+  &__content {
+    display: flex;
+    overflow-x: scroll;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}

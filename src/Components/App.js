@@ -2,11 +2,11 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "../Pages/Homepage/Homepage";
 import Movies from "../Pages/Movies/Movies";
-import PageNotFound from "../Pages/PageNotFound/PageNotFound";
 import Persons from "../Pages/Persons/Persons";
 import Search from "../Pages/Search/Search";
 import Series from "../Pages/Series/Series";
 import Trendings from "../Pages/Trendings/Trendings";
+import ContentDetails from "./ContentDetails/ContentDetails";
 import Navbar from "./Navbar/Navbar";
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
         <Route path='/series' component={Series} />
         <Route path='/persons' component={Persons} />
         <Route path='/search' component={Search} />
-        <Route component={PageNotFound} />
+        <Route path='/:id' component={ContentDetails} />
       </Switch>
     </Router>
   );

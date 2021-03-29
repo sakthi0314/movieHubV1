@@ -8,11 +8,19 @@
   background-size: cover;
   padding: 0 1rem;
 
+  @include respond(tablet) {
+    height: 60vh;
+  }
+
   &__content {
     height: 100vh;
     max-width: 130rem;
     margin: 0 auto;
     @include flexbox(column, center, flex-start);
+
+    @include respond(tablet) {
+      height: 60vh;
+    }
 
     h1 {
       font-size: 4.5rem;

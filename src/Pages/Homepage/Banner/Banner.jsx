@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "../../../Services/axios";
 import { request } from "../../../Services/request";
-import { FaPlay } from "react-icons/fa";
 import "../../../Styles/button.scss";
 import "./Banner.scss";
 
@@ -10,15 +10,11 @@ function Banner() {
 
   // Fetch Banner
   const fetchBanner = async () => {
-    try {
-      const response = await axios.get(request.fetchTrening);
-      const data = await response.data;
-      setBanner(
-        data.results[Math.floor(Math.random() * data.results.length - 1)]
-      );
-    } catch (error) {
-      console.log(error.message);
-    }
+    const response = await axios.get(request.fetchTrening);
+    const data = await response.data;
+    setBanner(
+      data.results[Math.floor(Math.random() * data.results.length - 1)]
+    );
   };
 
   // Trancate Function
@@ -42,8 +38,12 @@ function Banner() {
           <h1>{banner?.title || banner?.name}</h1>
           <p>{trancate(banner?.overview, 150)}</p>
           <button className='banner__btn primary'>
-            <FaPlay />
-            <span style={{ marginLeft: "1rem" }}>Watch Trailer</span>
+            <Link
+              style={{ textDecoration: "none", color: "#111", outline: "none" }}
+              to='/movies'
+            >
+              Explore Now
+            </Link>
           </button>
         </div>
       </header>

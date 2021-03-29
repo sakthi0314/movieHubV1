@@ -1,0 +1,10 @@
+@import "../../Styles/variables";
+@import "../../Styles/mixins";
+
+.CastSlider {
+  min-width: 16rem;
+
+  img {
+    max-width: 100%;
+  }
+}
