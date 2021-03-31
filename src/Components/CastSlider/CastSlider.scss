@@ -1,10 +1,30 @@
 @import "../../Styles/variables";
 @import "../../Styles/mixins";
 
-.CastSlider {
+.castSlider {
   min-width: 16rem;
+  margin: 0 0.6vw;
+  padding-bottom: 2rem;
+  text-decoration: none;
+  color: $white;
+
+  @include respond(tablet) {
+    min-width: 12rem;
+  }
 
   img {
     max-width: 100%;
+    border-radius: 0.4rem;
+  }
+
+  &__name {
+    font-size: $font-xsm;
+  }
+
+  &__char {
+    padding-top: 0.4rem;
+    color: $lightGrey;
+    width: 60%;
+    font-weight: map-get($font-weight, Light);
   }
 }

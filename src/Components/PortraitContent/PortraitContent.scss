@@ -47,15 +47,7 @@
     span {
       font-weight: map-get($font-weight, bold);
       font-size: $font-xsm;
-      color: yellow;
+      color: $Yellow;
     }
   }
-}
-
-.red {
-  color: rgb(161, 0, 0) !important;
-}
-
-.redOne {
-  border: 3px solid rgb(161, 0, 0) !important;
 }

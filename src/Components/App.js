@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "../Pages/Homepage/Homepage";
+import Log from "../Pages/Log/Log";
 import Movies from "../Pages/Movies/Movies";
 import Persons from "../Pages/Persons/Persons";
 import Search from "../Pages/Search/Search";
@@ -20,6 +21,7 @@ function App() {
         <Route path='/series' component={Series} />
         <Route path='/persons' component={Persons} />
         <Route path='/search' component={Search} />
+        <Route path='/logout' exact component={Log} />
         <Route path='/:id' component={ContentDetails} />
       </Switch>
     </Router>
