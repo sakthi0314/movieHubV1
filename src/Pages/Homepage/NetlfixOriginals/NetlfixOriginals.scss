@@ -1,0 +1,58 @@
+@import "../../../Styles/variables";
+@import "../../../Styles/mixins";
+
+.netflix {
+  height: 70vh;
+  background-size: cover;
+  background-position: center center;
+  @include respond(tablet) {
+    height: 50vh;
+    margin-bottom: 1rem;
+  }
+
+  &__title {
+    max-width: 130rem;
+    margin: 0 auto;
+    font-size: $font-l;
+    padding-bottom: 2rem;
+    text-align: left;
+    margin-left: 1rem;
+  }
+  &__container {
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    width: 12rem;
+    padding-top: 2rem;
+    margin-left: 1rem;
+
+    @include respond(tablet) {
+      width: 8rem;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__content {
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    height: 60vh;
+    align-items: center;
+    display: flex;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    @include respond(tablet) {
+      height: 40vh;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

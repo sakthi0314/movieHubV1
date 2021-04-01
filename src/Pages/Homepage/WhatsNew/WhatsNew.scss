@@ -1,13 +1,33 @@
 @import "../../../Styles/mixins";
 @import "../../../Styles/variables";
 
-.upcoming {
+.whatsNew {
   padding: 3rem 0;
   margin: 0 1rem;
+
+  &__select {
+    background-color: $Yellow;
+    border: none;
+    outline: none;
+    color: $black;
+    font-weight: map-get($font-weight, bold);
+    font-size: $font-md;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    @include respond(tablet) {
+      font-size: $font-sm;
+    }
+
+    @include respond(mobile) {
+      font-size: $font-xsm;
+      padding: 0.6rem;
+    }
+  }
+
   @include respond(tablet) {
     padding: 1rem 0;
   }
-
   &__container {
     max-width: 130rem;
     margin: 0 auto;
@@ -16,10 +36,12 @@
   &__header {
     margin-bottom: 2rem;
     text-align: left;
+    @include flexbox(row, flex-start, center);
 
     h1 {
       font-size: $font-l;
       text-transform: capitalize;
+      margin-right: 2vw;
     }
   }
 

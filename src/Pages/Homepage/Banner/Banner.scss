@@ -2,11 +2,11 @@
 @import "../../../Styles/variables";
 
 .banner {
-  position: relative;
   height: 100vh;
   background-position: center;
   background-size: cover;
   padding: 0 1rem;
+  z-index: -1;
 
   @include respond(tablet) {
     height: 60vh;

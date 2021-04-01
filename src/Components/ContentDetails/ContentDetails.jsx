@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../Services/axios";
-import { useParams } from "react-router-dom";
+import { useParams, match } from "react-router-dom";
 import { APP_KEY, request } from "../../Services/request";
 import "./ContentDetails.scss";
 import CastSlider from "../CastSlider/CastSlider";
 import { FaPlay } from "react-icons/fa";
 
-function ContentDetails() {
+function ContentDetails({ match }) {
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
   const { id } = useParams();

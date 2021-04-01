@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Homepage from "../Pages/Homepage/Homepage";
 import Log from "../Pages/Log/Log";
@@ -8,7 +8,9 @@ import Search from "../Pages/Search/Search";
 import Series from "../Pages/Series/Series";
 import Trendings from "../Pages/Trendings/Trendings";
 import ContentDetails from "./ContentDetails/ContentDetails";
+import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
+import OptionDetail from "./OptionDetail/OptionDetail";
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
         <Route path='/series' component={Series} />
         <Route path='/persons' component={Persons} />
         <Route path='/search' component={Search} />
-        <Route path='/logout' exact component={Log} />
+        <Route path='/logout' component={Log} />
         <Route path='/:id' component={ContentDetails} />
+        <Route path='' />
       </Switch>
+      <Footer />
     </Router>
   );
 }

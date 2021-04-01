@@ -6,6 +6,7 @@ import "./Upcoming.scss";
 
 function UpcomingMovies() {
   const [content, setContent] = useState([]);
+
   // Fetch Upcoming movies
   const fetchUpcoming = async () => {
     const response = await axios.get(request.fetchUpcoming);
