@@ -4,8 +4,10 @@
 .nav {
   position: fixed;
   width: 100%;
+  top: 0;
   padding: 3rem 1rem;
   z-index: 10;
+  background-color: $DarkGrey;
   transition: all 0.5s ease-in-out;
 
   @include respond(tablet) {
@@ -159,11 +161,10 @@
   }
 }
 
-// Scroll Anmimation classes
-.black {
-  background-color: $DarkGrey;
-}
-
 .selected {
   color: $Yellow;
+}
+
+.top {
+  top: -20%;
 }

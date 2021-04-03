@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { request } from "../../Services/request";
-import "./PortraitContent.scss";
 
-function PortraitContent({ id, title, poster, vote_average }) {
+function ShowsContent({ id, title, poster, vote_average }) {
   return (
     <>
       <Link to={`/${id}`} className='portraitContent'>
@@ -25,4 +24,4 @@ function PortraitContent({ id, title, poster, vote_average }) {
   );
 }
 
-export default PortraitContent;
+export default ShowsContent;

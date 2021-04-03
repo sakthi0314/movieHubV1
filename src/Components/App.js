@@ -10,7 +10,7 @@ import Trendings from "../Pages/Trendings/Trendings";
 import ContentDetails from "./ContentDetails/ContentDetails";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
-import OptionDetail from "./OptionDetail/OptionDetail";
+import ShowDetail from "./ShowDetails/ShowDetail";
 
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
         <Route path='/persons' component={Persons} />
         <Route path='/search' component={Search} />
         <Route path='/logout' component={Log} />
-        <Route path='/:id' component={ContentDetails} />
-        <Route path='' />
+        <Route path='/:movie' component={ContentDetails} />
+        <Route path='/:tv' component={ShowDetail} />
       </Switch>
       <Footer />
     </Router>

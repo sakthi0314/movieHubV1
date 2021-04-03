@@ -1,55 +1,56 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../../Services/axios";
 import { request } from "../../../Services/request";
-import "./WhatsNew.scss";
-import PortraitContent from "../../../Components/PortraitContent/PortraitContent";
+import ShowContent from "../../../Components/ShowsContent/ShowsContent";
+import "./TypeShows.scss";
 
-function WhatsNew() {
+function TypeShows() {
   const [content, setContent] = useState([]);
-  const [type, setType] = useState("now_playing");
+  const [type, setType] = useState("popular");
 
-  console.log(type);
-
-  // Fetch Popular
+  // Fetch Data
   const fetchData = async () => {
-    const { data } = await axios.get(`movie/${type}/${request.fetchPopular}`);
+    const { data } = await axios.get(`tv/${type}/${request.fetchtype}`);
     setContent(data.results);
   };
 
   useEffect(() => {
     fetchData();
   }, [type]);
-
   return (
-    <div className='whatsNew'>
-      <div className='whatsNew__container'>
-        <div className='whatsNew__header'>
-          <h1>What's New</h1>
+    <div className='typeShows'>
+      <div className='typeShows__container'>
+        <div className='typeShows__header'>
+          <h1>{type} Tv Series</h1>
           <select
-            className='whatsNew__select'
+            className='typeShows__select'
             name='type'
             onChange={(e) => {
               const selected = e.target.value;
               setType(selected);
             }}
           >
-            <option className='whatsNew__option' value='popular'>
+            <option className='typeShows__option' value='popular'>
               Popular
             </option>
-            <option className='whatsNew__option' value='top_rated'>
+            <option className='typeShows__option' value='top_rated'>
               Top rated
             </option>
 
-            <option className='whatsNew__option' value='now_playing'>
-              Now Playing
+            <option className='typeShows__option' value='airing_today'>
+              Today
+            </option>
+
+            <option className='typeShows__option' value='on_the_air'>
+              On Air
             </option>
           </select>
-          <span className='whatsNew__icon'></span>
+          <span className='typeShows__icon'></span>
         </div>
-        <div className='whatsNew__content'>
+        <div className='typeShows__content'>
           {content &&
             content.map((item) => (
-              <PortraitContent
+              <ShowContent
                 key={item?.id}
                 id={item?.id}
                 title={item?.title || item?.name}
@@ -63,4 +64,4 @@ function WhatsNew() {
   );
 }
 
-export default WhatsNew;
+export default TypeShows;

@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../Services/axios";
 import { useParams } from "react-router-dom";
 import { APP_KEY, request } from "../../Services/request";
-import "./ContentDetails.scss";
 import CastSlider from "../CastSlider/CastSlider";
+import axios from "../../Services/axios";
 import { FaPlay } from "react-icons/fa";
 
-function ContentDetails() {
+function ShowDetail() {
+  const { tv } = useParams();
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
-  const { movie } = useParams();
 
-  console.log(detail);
-
-  // Fetch Detail
+  // Fetch Details
   const fetchDetail = async () => {
     const response = await axios.get(
-      `/movie/${movie}?api_key=${APP_KEY}&language=en-US`
+      `/tv/${tv}?api_key=${APP_KEY}&language=en-US`
     );
     const data = await response.data;
     setDetail(data);
@@ -25,7 +22,7 @@ function ContentDetails() {
   // Fetch Casts
   const fetchCasts = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${APP_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/tv/${tv}/credits?api_key=${APP_KEY}&language=en-US`
     );
     setCasts(data.cast);
   };
@@ -112,4 +109,4 @@ function ContentDetails() {
   );
 }
 
-export default ContentDetails;
+export default ShowDetail;

@@ -21,33 +21,18 @@
 
   &__title {
     font-size: $font-sm;
-    font-weight: map-get($font-weight, bold);
+    font-weight: map-get($font-weight, Medium);
     line-height: 1;
-    padding: 1.6rem 0;
+  }
+
+  &__info {
+    @include flexbox(row, space-between, flex-start);
+    margin-top: 1vh;
   }
 
   &__rating {
-    position: absolute;
-    bottom: 14%;
-    left: 4%;
-    height: 4rem;
-    width: 4rem;
-    background-color: $black;
-    border-radius: 50%;
-    border: 3px solid $Yellow;
-    @include flexbox(row, center, center);
-    margin: 1rem 0;
-
-    @include respond(tablet) {
-      bottom: 21%;
-      height: 3.4rem;
-      width: 3.4rem;
-    }
-
-    span {
-      font-weight: map-get($font-weight, bold);
-      font-size: $font-xsm;
-      color: $white;
-    }
+    font-size: $font-xsm;
+    color: $Yellow;
+    font-weight: map-get($font-weight, bold);
   }
 }

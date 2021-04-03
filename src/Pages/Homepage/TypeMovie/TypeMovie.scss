@@ -1,7 +1,7 @@
 @import "../../../Styles/mixins";
 @import "../../../Styles/variables";
 
-.whatsNew {
+.typemovie {
   padding: 3rem 0;
   margin: 0 1rem;
 
@@ -12,8 +12,23 @@
     color: $black;
     font-weight: map-get($font-weight, bold);
     font-size: $font-md;
-    padding: 1rem;
+    padding: 0.4rem;
     border-radius: 0.5rem;
+
+    @include respond(tablet) {
+      font-size: $font-sm;
+    }
+
+    @include respond(mobile) {
+      font-size: $font-xsm;
+      padding: 0.3rem;
+    }
+  }
+
+  &__option {
+    font-size: $font-md;
+    padding: 1rem;
+    background-color: $white;
 
     @include respond(tablet) {
       font-size: $font-sm;
@@ -34,6 +49,7 @@
   }
 
   &__header {
+    display: flex;
     margin-bottom: 2rem;
     text-align: left;
     @include flexbox(row, flex-start, center);

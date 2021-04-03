@@ -9,8 +9,6 @@ function NetlfixOriginals() {
   const [backdrop, setbackdrop] = useState({});
   const [content, setContent] = useState([]);
 
-  console.log(content);
-
   // Fetch Netflix
   const fetchBackdrop = async () => {
     const { data } = await axios.get(request.fetchNetflixOrignals);
@@ -26,7 +24,6 @@ function NetlfixOriginals() {
 
   return (
     <>
-      <h1 className='netflix__title'>Netflix Originals</h1>
       <div
         className='netflix'
         style={{

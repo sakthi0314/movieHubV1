@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
 import { BiLogOut } from "react-icons/bi";
@@ -9,27 +9,27 @@ function Navbar() {
   const [menu, setMenu] = useState(false);
   const [clip, setClip] = useState(false);
   const [show, handleShow] = useState(false);
+
   const handleClick = () => {
     setMenu(!menu);
     setClip(!clip);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handler);
-    function handler() {
-      if (window.scrollY > 100) {
-        handleShow(true);
-      } else {
+    let prevScrollpos = window.pageYOffset;
+    window.addEventListener("scroll", () => {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollpos > currentScrollPos) {
         handleShow(false);
+      } else {
+        handleShow(true);
       }
-    }
-    return () => {
-      window.removeEventListener("scroll", handler);
-    };
+      prevScrollpos = currentScrollPos;
+    });
   }, []);
 
   return (
-    <nav className={`nav ${show && "black"}`}>
+    <nav className={`nav ${show && "top"}`}>
       <div className='nav__container'>
         <div className='nav__logo'>
           <NavLink to='/' style={{ outline: "none", textDecoration: "none" }}>

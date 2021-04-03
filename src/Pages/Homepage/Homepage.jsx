@@ -1,7 +1,8 @@
 import React from "react";
 import Banner from "./Banner/Banner";
 import NetlfixOriginals from "./NetlfixOriginals/NetlfixOriginals";
-import WhatsNew from "./WhatsNew/WhatsNew";
+import Typemovies from "./TypeMovie/TypeMovie";
+import TypeShows from "./TypeShows/TypeShows";
 import UpcomingMovies from "./UpcomingMovies/UpcomingMovies";
 
 function Homepage() {
@@ -9,8 +10,9 @@ function Homepage() {
     <>
       <Banner />
       <UpcomingMovies />
-      <WhatsNew />
+      <Typemovies />
       <NetlfixOriginals />
+      <TypeShows />
     </>
   );
 }
