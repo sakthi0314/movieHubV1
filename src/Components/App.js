@@ -11,6 +11,8 @@ import ContentDetails from "./ContentDetails/ContentDetails";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar/Navbar";
 import ShowDetail from "./ShowDetails/ShowDetail";
+import TrendDetails from "./TrendDetail/TrendDetails";
+import TrendDetailTv from "./TrendDetailTv/TrendDetailTv";
 
 function App() {
   return (
@@ -18,16 +20,17 @@ function App() {
       <Navbar />
       <Switch>
         <Route path='/' exact component={Homepage} />
-        <Route path='/trendings' component={Trendings} />
-        <Route path='/movies' component={Movies} />
-        <Route path='/series' component={Series} />
+        <Route path='/trendings' exact component={Trendings} />
+        <Route path='/movies' exact component={Movies} />
+        <Route path='/series' exact component={Series} />
         <Route path='/persons' component={Persons} />
         <Route path='/search' component={Search} />
-        <Route path='/logout' component={Log} />
-        <Route path='/:movie' component={ContentDetails} />
-        <Route path='/:tv' component={ShowDetail} />
+        <Route path='/logout' exact component={Log} />
+        <Route path='/series/:tv' component={ShowDetail} />
+        <Route path='/movies/:movie' component={ContentDetails} />
+        <Route path='/trendings/:id' component={TrendDetails} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }

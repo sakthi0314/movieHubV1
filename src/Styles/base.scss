@@ -46,15 +46,3 @@ input {
   max-width: 130rem;
   margin: 0 auto;
 }
-
-.app {
-  padding: 8rem 0;
-
-  @include respond(tablet) {
-    padding: 7rem 0;
-  }
-
-  @include respond(mobile) {
-    padding: 5.6rem 0;
-  }
-}

@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../Services/axios";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router";
+import "./TrendDetail.scss";
 import { APP_KEY, request } from "../../Services/request";
-import "./ContentDetails.scss";
-import CastSlider from "../CastSlider/CastSlider";
 import { FaPlay } from "react-icons/fa";
+import CastSlider from "../CastSlider/CastSlider";
 
-function ContentDetails() {
+function TrendDetails() {
+  let { id } = useParams();
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
-  const { movie } = useParams();
+  const { search } = useLocation();
+
+  let media_type = search.slice(1);
 
   // Fetch Detail
   const fetchDetail = async () => {
-    const response = await axios.get(
-      `/movie/${movie}?api_key=${APP_KEY}&language=en-US`
-    );
+    const response = await axios.get(`/${media_type}/${id}?api_key=${APP_KEY}`);
     const data = await response.data;
     setDetail(data);
   };
-
   // Fetch Casts
   const fetchCasts = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${APP_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${APP_KEY}&language=en-US`
     );
     setCasts(data.cast);
   };
@@ -110,4 +110,4 @@ function ContentDetails() {
   );
 }
 
-export default ContentDetails;
+export default TrendDetails;

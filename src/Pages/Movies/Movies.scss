@@ -1,0 +1,38 @@
+@import "../../Styles/mixins";
+@import "../../Styles/variables";
+
+.movies {
+  padding: 3rem 1rem;
+  margin-top: 8rem;
+
+  @include respond(mobile) {
+    margin-top: 6rem;
+  }
+
+  @include respond(tablet) {
+    padding: 2rem 1rem;
+  }
+
+  @include respond(mobile) {
+    padding: 1rem;
+  }
+
+  &__header {
+    @include flexbox(column, center, flex-start);
+    margin-bottom: 4vh;
+
+    @include respond(tablet) {
+      margin-bottom: 2vh;
+    }
+
+    &--title {
+      font-size: $font-l;
+      margin-bottom: 1vh;
+    }
+  }
+
+  &__container {
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+}

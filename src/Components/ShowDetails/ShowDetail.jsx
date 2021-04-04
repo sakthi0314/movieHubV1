@@ -10,6 +10,8 @@ function ShowDetail() {
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
 
+  console.log(tv);
+
   // Fetch Details
   const fetchDetail = async () => {
     const response = await axios.get(

@@ -5,7 +5,7 @@ import { request } from "../../Services/request";
 function ShowsContent({ id, title, poster, vote_average }) {
   return (
     <>
-      <Link to={`/${id}`} className='portraitContent'>
+      <Link to={`series/${id}`} className='portraitContent'>
         <img
           src={poster ? `${request.IMG_URL}/${poster}` : request.NO_IMG}
           alt={title}

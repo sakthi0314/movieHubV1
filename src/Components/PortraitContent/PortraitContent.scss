@@ -6,6 +6,8 @@
   min-width: 20rem;
   margin: 0 1rem;
   text-decoration: none;
+  outline: none;
+  border: none;
   color: $white;
 
   @include respond(tablet) {

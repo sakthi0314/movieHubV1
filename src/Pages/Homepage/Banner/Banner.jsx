@@ -10,7 +10,7 @@ function Banner() {
 
   // Fetch Banner
   const fetchBanner = async () => {
-    const response = await axios.get(request.fetchTrening);
+    const response = await axios.get(request.fetchTrending);
     const data = await response.data;
     setBanner(
       data.results[Math.floor(Math.random() * data.results.length - 1)]

@@ -1,0 +1,71 @@
+@import "../../Styles/variables";
+@import "../../Styles/mixins";
+
+.rowContent {
+  padding: 0;
+  color: $white;
+  margin-bottom: 1rem;
+  background-color: $DarkGrey;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  &__container {
+    max-width: 130rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__img {
+    flex-basis: 15%;
+    min-width: 12rem;
+    outline: none;
+    border: none;
+    text-decoration: none;
+
+    &--poster {
+      max-width: 100%;
+    }
+  }
+
+  &__info {
+    flex-basis: 85%;
+    margin-left: 2vw;
+
+    &--type {
+      color: $Yellow;
+    }
+
+    &--title {
+      font-size: $font-l;
+      font-weight: map-get($font-weight, bold);
+      @include respond(tablet) {
+        font-size: $font-md;
+      }
+    }
+
+    &--overview {
+      font-size: $font-sm;
+      font-weight: map-get($font-weight, Medium);
+      color: $lightGrey;
+      max-width: 50vw;
+      margin: 1rem 0;
+
+      @include respond(tablet) {
+        font-size: $font-xsm;
+        max-width: 60vw;
+        margin: 0.5rem 0;
+      }
+    }
+
+    &--media {
+      font-size: $font-sm;
+      text-transform: capitalize;
+      font-weight: map-get($font-weight, Medium);
+      @include respond(tablet) {
+        font-size: $font-xsm;
+      }
+    }
+  }
+}
