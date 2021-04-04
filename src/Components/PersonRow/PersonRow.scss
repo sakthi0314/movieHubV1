@@ -1,0 +1,30 @@
+@import "../../Styles/variables";
+@import "../../Styles/mixins";
+
+.personRow {
+  display: block;
+  outline: none;
+  border: none;
+  width: 20rem;
+  text-decoration: none;
+  color: $white;
+  margin: 0 1rem 1rem 0;
+
+  @include respond(tablet) {
+    width: 16rem;
+  }
+
+  img {
+    max-width: 100%;
+    border-radius: 0.4rem;
+  }
+
+  h1 {
+    font-size: $font-md;
+    font-weight: map-get($font-weight, Medium);
+
+    @include respond(mobile) {
+      font-size: $font-sm;
+    }
+  }
+}

@@ -9,15 +9,25 @@ import Series from "../Pages/Series/Series";
 import Trendings from "../Pages/Trendings/Trendings";
 import ContentDetails from "./ContentDetails/ContentDetails";
 import Footer from "./Footer/Footer";
+import Loader from "./Loader/Loader";
 import Navbar from "./Navbar/Navbar";
 import ShowDetail from "./ShowDetails/ShowDetail";
 import TrendDetails from "./TrendDetail/TrendDetails";
 import TrendDetailTv from "./TrendDetailTv/TrendDetailTv";
 
 function App() {
+  const [isLoading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 4000);
+  }, []);
+
   return (
-    <Router>
+    <Router forceRefresh>
       <Navbar />
+      <Loader isLoading={isLoading} />
       <Switch>
         <Route path='/' exact component={Homepage} />
         <Route path='/trendings' exact component={Trendings} />

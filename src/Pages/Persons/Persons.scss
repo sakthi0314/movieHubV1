@@ -1,0 +1,36 @@
+@import "../../Styles/variables";
+@import "../../Styles/mixins";
+
+.persons {
+  margin-top: 9rem;
+  padding: 0 1rem;
+
+  @include respond(mobile) {
+    margin-top: 6rem;
+  }
+
+  &__container {
+    max-width: 130rem;
+    margin: 0 auto;
+  }
+
+  &__header {
+    margin-bottom: 2vh;
+
+    h1 {
+      font-size: $font-l;
+    }
+
+    @include respond(mobile) {
+      margin-bottom: 1vh;
+    }
+
+    @include flexbox(row, space-between, center);
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
