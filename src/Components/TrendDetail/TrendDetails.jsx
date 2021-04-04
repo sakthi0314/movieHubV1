@@ -11,6 +11,7 @@ function TrendDetails() {
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
   const { search } = useLocation();
+  const [trailer, setTrailer] = useState(null);
 
   let media_type = search.slice(1);
 
@@ -28,10 +29,19 @@ function TrendDetails() {
     setCasts(data.cast);
   };
 
+  // Fetch Trailer
+  const fetchTrailer = async () => {
+    const { data } = await axios.get(
+      `/movie/${id}/videos?api_key=${APP_KEY}&language=en-US`
+    );
+    setTrailer(data.results[0]?.key);
+  };
+
   useEffect(() => {
     window.scroll(0, 0);
     fetchDetail();
     fetchCasts();
+    fetchTrailer();
   }, []);
 
   return (
@@ -72,7 +82,10 @@ function TrendDetails() {
             </span>
           </div>
 
-          <a href='#' className='contentDetails__center--trailer'>
+          <a
+            href={`https://www.youtube.com/watch?v=${trailer}`}
+            className='contentDetails__center--trailer'
+          >
             <span>
               <FaPlay />
             </span>

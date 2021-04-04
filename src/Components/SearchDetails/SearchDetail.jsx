@@ -1,21 +1,19 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../Services/axios";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import { APP_KEY, request } from "../../Services/request";
-import "./ContentDetails.scss";
-import CastSlider from "../CastSlider/CastSlider";
 import { FaPlay } from "react-icons/fa";
+import axios from "../../Services/axios";
+import CastSlider from "../CastSlider/CastSlider";
 
-function ContentDetails() {
+function SearchDetail() {
+  const { id } = useParams();
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
-  const { movie } = useParams();
-  const [trailer, setTrailer] = useState(null);
 
   // Fetch Detail
   const fetchDetail = async () => {
     const response = await axios.get(
-      `/movie/${movie}?api_key=${APP_KEY}&language=en-US`
+      `/movie/${id}?api_key=${APP_KEY}&language=en-US`
     );
     const data = await response.data;
     setDetail(data);
@@ -24,24 +22,15 @@ function ContentDetails() {
   // Fetch Casts
   const fetchCasts = async () => {
     const { data } = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie}/credits?api_key=${APP_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${APP_KEY}&language=en-US`
     );
     setCasts(data.cast);
-  };
-
-  // Fetch Trailer
-  const fetchTrailer = async () => {
-    const { data } = await axios.get(
-      `/movie/${movie}/videos?api_key=${APP_KEY}&language=en-US`
-    );
-    setTrailer(data.results[0]?.key);
   };
 
   useEffect(() => {
     window.scroll(0, 0);
     fetchDetail();
     fetchCasts();
-    fetchTrailer();
   }, []);
 
   return (
@@ -82,11 +71,7 @@ function ContentDetails() {
             </span>
           </div>
 
-          <a
-            href={`https://www.youtube.com/watch?v=${trailer}`}
-            target='_blank'
-            className='contentDetails__center--trailer'
-          >
+          <a href='#' className='contentDetails__center--trailer'>
             <span>
               <FaPlay />
             </span>
@@ -124,4 +109,4 @@ function ContentDetails() {
   );
 }
 
-export default ContentDetails;
+export default SearchDetail;

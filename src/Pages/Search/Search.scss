@@ -1,0 +1,47 @@
+@import "../../Styles/mixins";
+@import "../../Styles/variables";
+
+.search {
+  margin-top: 8rem;
+  min-height: 100vh;
+
+  @include respond(mobile) {
+    margin-top: 6rem;
+  }
+
+  &__container {
+    max-width: 130rem;
+    margin: 0 auto;
+
+    h1 {
+      font-size: $font-l;
+      padding: 2vh 0;
+    }
+  }
+
+  &__header {
+    @include flexbox(row, flex-start, center);
+  }
+
+  &__form {
+    background-color: $white;
+    width: 40rem;
+    padding: 0.7rem;
+    border-radius: 0.4rem;
+    display: flex;
+    margin-right: 1vw;
+    margin-bottom: 2vh;
+
+    input {
+      width: 100%;
+      background-color: transparent;
+      font-size: $font-sm;
+      font-weight: map-get($font-weight, Medium);
+    }
+  }
+
+  &__btn {
+    color: $DarkGrey;
+    font-size: $font-sm;
+  }
+}

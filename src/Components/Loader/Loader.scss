@@ -16,7 +16,7 @@
   animation: scaleUp;
   animation-duration: 3000ms;
   animation-iteration-count: infinite;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: linear;
 
   &__container {
     display: flex;
@@ -24,7 +24,8 @@
     flex-direction: column;
 
     p {
-      font-size: 3rem;
+      font-size: $font-l;
+      margin-top: 1vh;
       font-weight: map-get($font-weight, bold);
     }
   }

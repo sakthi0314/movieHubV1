@@ -11,9 +11,9 @@ import ContentDetails from "./ContentDetails/ContentDetails";
 import Footer from "./Footer/Footer";
 import Loader from "./Loader/Loader";
 import Navbar from "./Navbar/Navbar";
+import SearchDetail from "./SearchDetails/SearchDetail";
 import ShowDetail from "./ShowDetails/ShowDetail";
 import TrendDetails from "./TrendDetail/TrendDetails";
-import TrendDetailTv from "./TrendDetailTv/TrendDetailTv";
 
 function App() {
   const [isLoading, setLoading] = useState(false);
@@ -34,13 +34,14 @@ function App() {
         <Route path='/movies' exact component={Movies} />
         <Route path='/series' exact component={Series} />
         <Route path='/persons' component={Persons} />
-        <Route path='/search' component={Search} />
+        <Route path='/search' exact component={Search} />
         <Route path='/logout' exact component={Log} />
         <Route path='/series/:tv' component={ShowDetail} />
         <Route path='/movies/:movie' component={ContentDetails} />
         <Route path='/trendings/:id' component={TrendDetails} />
+        <Route path='/search/:id' component={SearchDetail} />
       </Switch>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }

@@ -41,10 +41,8 @@ function Persons() {
           {persons &&
             persons.map((person) => (
               <PersonRow
-                id={person.id}
                 key={person.id}
                 name={person.name}
-                known_for_department={person.known_for_department}
                 profile_path={person.profile_path}
               />
             ))}

@@ -139,6 +139,8 @@
       color: $white;
       font-size: $font-md;
       text-decoration: none;
+      outline: none;
+      border: none;
 
       @include respond(tablet) {
         font-size: $font-xsm;
