@@ -2,57 +2,98 @@
 @import "../../Styles/variables";
 
 .footer {
-  margin-top: 4rem;
   background-color: $DarkGrey;
-  height: 40vh;
+  padding: 3rem 0;
 
   &__container {
     max-width: 130rem;
     margin: 0 auto;
+    padding: 0 2rem;
+    @include flexbox(row, space-between, center);
+    flex-wrap: wrap-reverse;
   }
 
-  &__header {
-    @include flexbox(row, space-between, center);
-    padding: 2rem 0;
+  &__left {
+    &--text {
+      font-size: $font-xsm;
+      color: $lightGrey;
+    }
   }
 
   &__logo {
-    color: $Yellow;
-    text-decoration: none;
     font-size: $font-l;
-    text-transform: uppercase;
-    font-weight: map-get($font-weight, bold);
-    outline: none;
-    border: none;
-    @include respond(tablet) {
+    color: $Yellow;
+  }
+
+  &__social {
+    margin: 2rem 0;
+
+    a {
+      color: $lightGrey;
+      margin-right: 2rem;
       font-size: $font-md;
+      outline: none;
+      border: none;
+      transition: 0.3s ease;
+
+      &:hover {
+        color: $Yellow;
+      }
     }
   }
 
-  &__form {
-    height: 100%;
-    display: flex;
-    @include flexbox(column, center, flex-start);
-    &--name {
+  &__right {
+    h1 {
+      font-size: $font-l;
+      margin-bottom: 3vh;
+    }
+    form {
       @include flexbox(column, center, flex-start);
-      margin-bottom: 1.3rem;
-      label {
-        font-size: $font-md;
 
-        @include respond(tablet) {
-          font-size: $font-sm;
-        }
+      @include respond(tablet) {
+        margin-bottom: 4vh;
       }
 
       input {
-        width: 40vw;
+        width: 30vw;
+        min-width: 40rem;
         padding: 1rem;
-        border-radius: 0.3rem;
+        font-size: $font-xsm;
+        border-radius: 0.4rem;
+        margin-bottom: 2vh;
+        border: none;
+        outline: none;
+        font-family: inherit;
+        font-weight: map-get($font-weight, Medium);
+      }
 
-        @include respond(tablet) {
-          width: 60vw;
-        }
+      label {
+        font-size: $font-md;
+        margin-bottom: 1vh;
+      }
+
+      textarea {
+        font-family: inherit;
+        font-weight: map-get($font-weight, Medium);
+        width: 30vw;
+        min-width: 40rem;
+        padding: 1rem;
+        font-size: $font-xsm;
+        border-radius: 0.4rem;
+        border: none;
+        outline: none;
+        margin-bottom: 2vh;
       }
     }
   }
+}
+
+.pop {
+  margin-bottom: 1vh;
+  color: $Yellow;
+  font-size: $font-xsm;
+}
+
+.hide {
+  display: none;
 }

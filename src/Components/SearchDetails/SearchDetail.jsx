@@ -9,6 +9,7 @@ function SearchDetail() {
   const { id } = useParams();
   const [detail, setDetail] = useState({});
   const [casts, setCasts] = useState([]);
+  const [trailer, setTrailer] = useState(null);
 
   // Fetch Detail
   const fetchDetail = async () => {
@@ -27,10 +28,19 @@ function SearchDetail() {
     setCasts(data.cast);
   };
 
+  // Fetch Trailer
+  const fetchTrailer = async () => {
+    const { data } = await axios.get(
+      `/movie/${id}/videos?api_key=${APP_KEY}&language=en-US`
+    );
+    setTrailer(data.results[1]?.key);
+  };
+
   useEffect(() => {
     window.scroll(0, 0);
     fetchDetail();
     fetchCasts();
+    fetchTrailer();
   }, []);
 
   return (
@@ -71,7 +81,11 @@ function SearchDetail() {
             </span>
           </div>
 
-          <a href='#' className='contentDetails__center--trailer'>
+          <a
+            href={`https://www.youtube.com/watch?v=${trailer}`}
+            target='_blank'
+            className='contentDetails__center--trailer'
+          >
             <span>
               <FaPlay />
             </span>
