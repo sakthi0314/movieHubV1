@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
 import { BiLogOut } from "react-icons/bi";
@@ -42,7 +42,7 @@ function Navbar() {
         <ul className={`nav__list ${clip && "open"}`} onClick={handleClick}>
           <li>
             <NavLink
-              to='trendings'
+              to='/trendings'
               className='nav__link'
               activeClassName='selected'
             >
@@ -52,7 +52,7 @@ function Navbar() {
 
           <li>
             <NavLink
-              to='movies'
+              to='/movies'
               className='nav__link'
               activeClassName='selected'
             >
@@ -62,7 +62,7 @@ function Navbar() {
 
           <li>
             <NavLink
-              to='series'
+              to='/series'
               className='nav__link'
               activeClassName='selected'
             >
@@ -72,7 +72,7 @@ function Navbar() {
 
           <li>
             <NavLink
-              to='persons'
+              to='/persons'
               className='nav__link'
               activeClassName='selected'
             >
@@ -82,7 +82,7 @@ function Navbar() {
 
           <li>
             <NavLink
-              to='search'
+              to='/search'
               className='nav__link'
               activeClassName='selected'
             >

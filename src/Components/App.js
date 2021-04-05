@@ -26,12 +26,11 @@ function App() {
 
   return (
     <Router forceRefresh>
-      <Navbar />
       <Loader isLoading={isLoading} />
+      <Navbar />
       <Switch>
         <Route path='/' exact component={Homepage} />
         <Route path='/trendings' exact component={Trendings} />
-        <Route path='/movies' exact component={Movies} />
         <Route path='/series' exact component={Series} />
         <Route path='/persons' component={Persons} />
         <Route path='/search' exact component={Search} />
@@ -40,6 +39,7 @@ function App() {
         <Route path='/movies/:movie' component={ContentDetails} />
         <Route path='/trendings/:id' component={TrendDetails} />
         <Route path='/search/:id' component={SearchDetail} />
+        <Route path='/movies' exact component={Movies} />
       </Switch>
       <Footer />
     </Router>

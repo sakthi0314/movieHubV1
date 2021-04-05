@@ -9,19 +9,19 @@ function RowContent({ title, id, overview, poster, media_type, vote_average }) {
   }
 
   return (
-    <div>
+    <Link
+      to={`trendings/${id}?${media_type}`}
+      style={{ textDecoration: "none", outline: "none", border: "none" }}
+    >
       <div className='rowContent'>
         <div className='rowContent__container'>
-          <Link
-            to={`trendings/${id}?${media_type}`}
-            className='rowContent__img'
-          >
+          <div to={`trendings/${id}?${media_type}`} className='rowContent__img'>
             <img
               src={poster ? `${request.IMG_URL}${poster}` : request.NO_IMG}
               alt={title}
               className='rowContent__img--poster'
             />
-          </Link>
+          </div>
           <div className='rowContent__info'>
             <h1 className='rowContent__info--title'>{title}</h1>
             <p className='rowContent__info--overview'>
@@ -34,7 +34,7 @@ function RowContent({ title, id, overview, poster, media_type, vote_average }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

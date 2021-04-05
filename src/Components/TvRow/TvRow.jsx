@@ -7,16 +7,19 @@ function TvRow({ title, id, overview, poster, media_type }) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }
   return (
-    <div>
+    <Link
+      to={`series/${id}`}
+      style={{ textDecoration: "none", outline: "none", border: "none" }}
+    >
       <div className='rowContent'>
         <div className='rowContent__container'>
-          <Link to={`series/${id}`} className='rowContent__img'>
+          <div className='rowContent__img'>
             <img
               src={poster ? `${request.IMG_URL}${poster}` : request.NO_IMG}
               alt={title}
               className='rowContent__img--poster'
             />
-          </Link>
+          </div>
           <div className='rowContent__info'>
             <h1 className='rowContent__info--title'>{title}</h1>
             <p className='rowContent__info--overview'>
@@ -29,7 +32,7 @@ function TvRow({ title, id, overview, poster, media_type }) {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 

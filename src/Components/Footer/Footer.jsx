@@ -22,6 +22,9 @@ function Footer() {
       })
       .then(() => {
         setMessage("Feedback has been submitted");
+        setTimeout(() => {
+          setMessage("");
+        }, 2000);
       })
       .catch((err) => {
         setMessage(err.message);
