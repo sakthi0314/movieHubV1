@@ -55,8 +55,7 @@
       }
 
       input {
-        width: 20vw;
-        min-width: 30rem;
+        min-width: 40rem;
         padding: 1rem;
         font-size: $font-xsm;
         border-radius: 0.4rem;
@@ -65,6 +64,10 @@
         outline: none;
         font-family: inherit;
         font-weight: map-get($font-weight, Medium);
+
+        @include respond(mobile) {
+          min-width: 40vw;
+        }
       }
 
       label {
@@ -75,14 +78,17 @@
       textarea {
         font-family: inherit;
         font-weight: map-get($font-weight, Medium);
-        width: 20vw;
-        min-width: 30rem;
+        min-width: 40rem;
         padding: 1rem;
         font-size: $font-xsm;
         border-radius: 0.4rem;
         border: none;
         outline: none;
         margin-bottom: 2vh;
+
+        @include respond(mobile) {
+          min-width: 25rem;
+        }
       }
     }
   }

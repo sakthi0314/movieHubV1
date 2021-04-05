@@ -89,23 +89,6 @@ function Navbar() {
               Search
             </NavLink>
           </li>
-
-          <li className='active'>
-            <NavLink
-              to='logout'
-              className='nav__link block-log'
-              activeClassName='selected'
-            >
-              Log Out
-            </NavLink>
-            <NavLink
-              to='logout'
-              className='nav__list--icon block-icon'
-              activeClassName='selected'
-            >
-              <BiLogOut />
-            </NavLink>
-          </li>
         </ul>
       </div>
     </nav>
