@@ -49,14 +49,14 @@
     }
     form {
       @include flexbox(column, center, flex-start);
-
+      margin: 0 1rem;
       @include respond(tablet) {
         margin-bottom: 4vh;
       }
 
       input {
-        width: 30vw;
-        min-width: 40rem;
+        width: 20vw;
+        min-width: 30rem;
         padding: 1rem;
         font-size: $font-xsm;
         border-radius: 0.4rem;
@@ -75,8 +75,8 @@
       textarea {
         font-family: inherit;
         font-weight: map-get($font-weight, Medium);
-        width: 30vw;
-        min-width: 40rem;
+        width: 20vw;
+        min-width: 30rem;
         padding: 1rem;
         font-size: $font-xsm;
         border-radius: 0.4rem;
