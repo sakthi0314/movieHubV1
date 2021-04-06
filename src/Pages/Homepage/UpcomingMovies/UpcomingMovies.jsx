@@ -10,8 +10,7 @@ function UpcomingMovies() {
   // Fetch Upcoming movies
   const fetchUpcoming = async () => {
     const response = await axios.get(request.fetchUpcoming);
-    const data = await response.data.results;
-    setContent(data);
+    setContent(response.data.results);
   };
 
   useEffect(() => {
