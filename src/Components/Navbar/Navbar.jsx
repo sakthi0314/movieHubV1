@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
-import { BiLogOut } from "react-icons/bi";
 import "./Navbar.scss";
 
 function Navbar() {

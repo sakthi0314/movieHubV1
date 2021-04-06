@@ -11,6 +11,10 @@
     padding: 0 2rem;
     @include flexbox(row, space-between, center);
     flex-wrap: wrap-reverse;
+
+    @include respond(tablet) {
+      padding: 0 1rem;
+    }
   }
 
   &__left {
@@ -23,6 +27,10 @@
   &__logo {
     font-size: $font-l;
     color: $Yellow;
+
+    @include respond(tablet) {
+      margin-top: 2vh;
+    }
   }
 
   &__social {
@@ -46,12 +54,31 @@
     h1 {
       font-size: $font-l;
       margin-bottom: 3vh;
+      text-transform: uppercase;
+      font-weight: map-get($font-weight, Medium);
+      letter-spacing: 0.3vw;
+      cursor: pointer;
+      transition: 0.3s ease;
+      display: inline-block;
+
+      &:hover {
+        color: $Yellow;
+      }
+
+      @include respond(mobile) {
+        font-size: $font-md;
+      }
+
+      @include respond(tablet) {
+        margin-bottom: 2vh;
+      }
     }
     form {
       @include flexbox(column, center, flex-start);
       margin: 0 1rem;
       @include respond(tablet) {
         margin-bottom: 4vh;
+        margin: 0 0.4rem;
       }
 
       input {
@@ -73,6 +100,14 @@
       label {
         font-size: $font-md;
         margin-bottom: 1vh;
+
+        @include respond(tablet) {
+          font-size: $font-sm;
+        }
+
+        @include respond(mobile) {
+          font-size: $font-xsm;
+        }
       }
 
       textarea {
@@ -98,7 +133,7 @@
   margin-bottom: 1vh;
   color: $Yellow;
   font-size: $font-xsm;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .hide {
