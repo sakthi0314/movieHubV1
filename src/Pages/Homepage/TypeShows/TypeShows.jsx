@@ -14,8 +14,8 @@ function TypeShows() {
     setContent(data.results);
   };
 
-  useEffect(() => {
-    fetchData();
+  useEffect(async () => {
+    await fetchData();
   }, [type]);
   return (
     <div className='typeShows'>
