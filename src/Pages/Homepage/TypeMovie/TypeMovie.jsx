@@ -15,6 +15,7 @@ function TypeMovie() {
   };
 
   useEffect(async () => {
+    console.log(content);
     await fetchData();
   }, [type]);
 

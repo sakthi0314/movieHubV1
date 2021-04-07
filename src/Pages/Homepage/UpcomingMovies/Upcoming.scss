@@ -20,6 +20,7 @@
     h1 {
       font-size: $font-l;
       text-transform: capitalize;
+      font-weight: map-get($font-weight, Medium);
     }
   }
 

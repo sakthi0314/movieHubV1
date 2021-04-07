@@ -13,8 +13,8 @@ function UpcomingMovies() {
     setContent(response.data.results);
   };
 
-  useEffect(() => {
-    fetchUpcoming();
+  useEffect(async () => {
+    await fetchUpcoming();
   }, []);
 
   return (

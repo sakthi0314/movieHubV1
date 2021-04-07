@@ -1,5 +1,5 @@
+import { Tab, Tabs } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { BsSearch } from "react-icons/bs";
 import SearchRow from "../../Components/SearchRow/SearchRow";
 import axios from "../../Services/axios";
 import { APP_KEY } from "../../Services/request";
@@ -7,16 +7,13 @@ import "./Search.scss";
 
 function Search() {
   const [currentPage, setcurrentPage] = useState(1);
-  const [query, setQuery] = useState("");
-  const [search, setSearch] = useState("");
+  const [type, setType] = useState(0);
   const [content, setContent] = useState([]);
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("");
 
-  // Get Search
-  const fetchSearch = async () => {
-    const { data } = await axios.get(
-      `/search/movie?api_key=${APP_KEY}&language=en-US&query=${query}&page=${currentPage}&include_adult=false`
-    );
-    setContent(data.results);
+  const handleInput = (e) => {
+    setSearch(e.target.value);
   };
 
   const handleNext = () => {
@@ -29,54 +26,71 @@ function Search() {
     window.scroll(0, 0);
   };
 
-  const updateSearch = (e) => {
-    setSearch(e.target.value);
+  const fetchSearch = async () => {
+    const { data } = await axios.get(
+      `/search/${
+        type ? "tv" : "movie"
+      }?api_key=${APP_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+    );
+    setContent(data.results);
   };
 
-  const getSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setQuery(search);
     setSearch("");
   };
 
-  useEffect(() => {
-    fetchSearch();
-  }, [currentPage, query]);
+  useEffect(async () => {
+    await fetchSearch();
+  }, [type, currentPage, query]);
 
   return (
     <div className='search'>
       <div className='search__container'>
-        <h1>Search here for Movie & Tv shows</h1>
-        <div className='search__header'>
-          <form className='search__form' onSubmit={getSearch}>
-            <input
-              type='text'
-              value={search}
-              onChange={updateSearch}
-              placeholder='Search for a movie and tv shows'
-            />
-            <button className='search__btn' type='submit'>
-              <BsSearch />
-            </button>
-          </form>
-        </div>
+        <form className='search__form' onSubmit={handleSubmit}>
+          <input
+            type='text'
+            onChange={handleInput}
+            className='search__input'
+            placeholder='Search here for movie are Tv series'
+          />
+          <div className='search__content'></div>
+
+          <button type='submit' className='search__btn primary'>
+            Search
+          </button>
+        </form>
+
+        <Tabs
+          value={type}
+          onChange={(event, newValue) => {
+            setType(newValue);
+          }}
+          style={{
+            color: "rgb(245, 197, 24)",
+            marginBottom: "2vh",
+          }}
+        >
+          <Tab label='Search Movies' />
+          <Tab label='Search Tv Series' />
+        </Tabs>
+
         <div className='search__content'>
-          {!content ? (
-            <h1>No result</h1>
-          ) : (
+          {content &&
             content.map((item) => (
               <SearchRow
+                key={item.id}
                 id={item.id}
-                poster={item.poster_path}
-                overview={item.overview}
-                key={item.key}
-                media_type='Movie'
                 name={item.title || item.name}
+                overview={item.overview}
+                media_type={type ? "tv" : "movie"}
+                poster={item.poster_path}
               />
-            ))
-          )}
+            ))}
         </div>
-        {content.length !== 0 && (
+
+        {content.length != 0 && (
           <div className='trending__pagination'>
             {currentPage >= 2 && (
               <button

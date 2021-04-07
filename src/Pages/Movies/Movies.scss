@@ -28,6 +28,7 @@
     &--title {
       font-size: $font-l;
       margin-bottom: 1vh;
+      font-weight: map-get($font-weight, Medium);
     }
   }
 

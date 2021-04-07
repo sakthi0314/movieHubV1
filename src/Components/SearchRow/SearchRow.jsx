@@ -9,7 +9,7 @@ function SearchRow({ id, name, overview, poster, media_type }) {
   return (
     <Link
       Link
-      to={`search/${id}?`}
+      to={`search/${id}?${media_type}`}
       style={{ textDecoration: "none", outline: "none", border: "none" }}
     >
       <div className='rowContent'>

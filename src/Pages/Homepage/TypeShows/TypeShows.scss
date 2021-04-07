@@ -58,6 +58,7 @@
       font-size: $font-l;
       text-transform: capitalize;
       margin-right: 2vw;
+      font-weight: map-get($font-weight, Medium);
     }
   }
 

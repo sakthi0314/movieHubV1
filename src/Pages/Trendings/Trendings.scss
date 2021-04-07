@@ -61,6 +61,7 @@
         font-size: $font-md;
         margin-bottom: 0.5rem;
         text-transform: capitalize;
+        font-weight: map-get($font-weight, Medium);
 
         @include respond(tablet) {
           font-size: $font-sm;
@@ -75,7 +76,7 @@
     &--title {
       font-size: $font-l;
       text-transform: capitalize;
-      font-weight: map-get($font-weight, bold);
+      font-weight: map-get($font-weight, Medium);
 
       @include respond(tablet) {
         font-size: $font-md;

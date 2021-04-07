@@ -20,11 +20,11 @@
   }
 
   h1 {
-    font-size: $font-md;
+    font-size: $font-sm;
     font-weight: map-get($font-weight, Medium);
 
     @include respond(mobile) {
-      font-size: $font-sm;
+      font-size: $font-xsm;
     }
   }
 }
