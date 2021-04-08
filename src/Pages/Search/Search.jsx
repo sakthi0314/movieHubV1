@@ -9,12 +9,8 @@ function Search() {
   const [currentPage, setcurrentPage] = useState(1);
   const [type, setType] = useState(0);
   const [content, setContent] = useState([]);
-  const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
-
-  const handleInput = (e) => {
-    setSearch(e.target.value);
-  };
+  const [input, setInput] = useState("");
 
   const handleNext = () => {
     setcurrentPage(currentPage + 1);
@@ -27,18 +23,25 @@ function Search() {
   };
 
   const fetchSearch = async () => {
-    const { data } = await axios.get(
-      `/search/${
-        type ? "tv" : "movie"
-      }?api_key=${APP_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
-    );
-    setContent(data.results);
+    try {
+      const { data } = await axios.get(
+        `/search/${
+          type ? "tv" : "movie"
+        }?api_key=${APP_KEY}&language=en-US&query=${query}&page=${currentPage}`
+      );
+      setContent(data.results);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setQuery(search);
-    setSearch("");
+    setQuery(input);
+  };
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
   };
 
   useEffect(async () => {
@@ -51,15 +54,12 @@ function Search() {
         <form className='search__form' onSubmit={handleSubmit}>
           <input
             type='text'
-            onChange={handleInput}
+            name='search'
+            placeholder='Search movie and tv shows'
             className='search__input'
-            placeholder='Search here for movie are Tv series'
+            onChange={handleInput}
           />
-          <div className='search__content'></div>
-
-          <button type='submit' className='search__btn primary'>
-            Search
-          </button>
+          <button className='search__btn primary'>Search</button>
         </form>
 
         <Tabs
@@ -73,7 +73,7 @@ function Search() {
           }}
         >
           <Tab label='Search Movies' />
-          <Tab label='Search Tv Series' />
+          <Tab label='Search tv shows' />
         </Tabs>
 
         <div className='search__content'>

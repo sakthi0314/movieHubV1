@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { request } from "../../Services/request";
 import "./RowContent.scss";
 
-function RowContent({ title, id, overview, poster, media_type, vote_average }) {
+function RowContent({ title, id, overview, poster, media_type }) {
   function trancat(str, n) {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   }

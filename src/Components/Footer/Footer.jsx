@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { FiInstagram } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
