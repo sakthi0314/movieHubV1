@@ -46,6 +46,7 @@ function Search() {
 
   useEffect(async () => {
     await fetchSearch();
+    setInput("");
   }, [type, currentPage, query]);
 
   return (

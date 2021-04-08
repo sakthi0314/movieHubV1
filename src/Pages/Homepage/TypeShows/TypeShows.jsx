@@ -10,8 +10,8 @@ function TypeShows() {
 
   // Fetch Data
   const fetchData = async () => {
-    const response = await axios.get(`tv/${type}/${request.fetchtype}`);
-    setContent(response.data.results);
+    const { data } = await axios.get(`tv/${type}/${request.fetchtype}`);
+    setContent(data.results);
   };
 
   useEffect(async () => {

@@ -10,12 +10,11 @@ function TypeMovie() {
 
   // Fetch data
   const fetchData = async () => {
-    const response = await axios.get(`movie/${type}/${request.fetchtype}`);
-    setContent(response.data.results);
+    const { data } = await axios.get(`movie/${type}/${request.fetchtype}`);
+    setContent(data.results);
   };
 
   useEffect(async () => {
-    console.log(content);
     await fetchData();
   }, [type]);
 
