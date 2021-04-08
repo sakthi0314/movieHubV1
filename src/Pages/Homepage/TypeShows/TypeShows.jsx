@@ -11,11 +11,12 @@ function TypeShows() {
   // Fetch Data
   const fetchData = async () => {
     const { data } = await axios.get(`tv/${type}/${request.fetchtype}`);
-    setContent(data.results);
+    setContent([...data.results]);
   };
 
   useEffect(async () => {
     await fetchData();
+    return () => setContent({});
   }, [type]);
 
   return (
