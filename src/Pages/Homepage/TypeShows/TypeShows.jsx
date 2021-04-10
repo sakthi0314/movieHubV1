@@ -23,7 +23,7 @@ function TypeShows() {
     <div className='typeShows'>
       <div className='typeShows__container'>
         <div className='typeShows__header'>
-          <h1>{type} Tv Series</h1>
+          <h1>Various types Tv Series</h1>
           <select
             className='typeShows__select'
             name='type'

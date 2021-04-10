@@ -6,7 +6,7 @@ import PortraitContent from "../../../Components/PortraitContent/PortraitContent
 
 function TypeMovie() {
   const [content, setContent] = useState([]);
-  const [type, setType] = useState("now_playing");
+  const [type, setType] = useState("top_rated");
 
   // Fetch data
   const fetchData = async () => {
@@ -23,7 +23,7 @@ function TypeMovie() {
     <div className='typemovie'>
       <div className='typemovie__container'>
         <div className='typemovie__header'>
-          <h1>{type} Movie</h1>
+          <h1>Various types Movies</h1>
           <select
             className='typemovie__select'
             name='type'

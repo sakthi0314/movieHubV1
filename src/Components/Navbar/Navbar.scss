@@ -5,7 +5,7 @@
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 3rem 1rem;
+  padding: 1.8rem 1rem;
   z-index: 10;
   background-color: $DarkGrey;
   transition: all 0.5s ease-in-out;
@@ -15,20 +15,13 @@
   }
 
   &__logo {
-    &--d {
-      background-color: $Yellow;
-      color: $black;
-      text-decoration: none;
-      padding: 1rem 2rem 1rem 1rem;
-      text-transform: uppercase;
-      font-size: $font-md;
-      font-weight: map-get($font-weight, bold);
-      border-radius: 0.4rem 5rem 5rem 0.4rem;
+    width: 12rem;
 
-      @include respond(tablet) {
-        font-size: $font-sm;
-        padding: 0.6rem 1rem 0.6rem 0.6rem;
-      }
+    @include respond(mobile) {
+      width: 10rem;
+    }
+    img {
+      max-width: 100%;
     }
   }
 
@@ -152,12 +145,6 @@
     display: block;
     margin-bottom: 0.45rem;
     color: $DarkGrey !important;
-  }
-}
-
-.active {
-  @include respond(tablet) {
-    background-color: $Yellow;
   }
 }
 

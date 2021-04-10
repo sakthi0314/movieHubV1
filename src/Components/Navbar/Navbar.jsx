@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { CgClose } from "react-icons/cg";
+import Logo from "../../Assets/logo.svg";
 import "./Navbar.scss";
 
 function Navbar() {
@@ -32,7 +33,7 @@ function Navbar() {
       <div className='nav__container'>
         <div className='nav__logo'>
           <NavLink to='/' style={{ outline: "none", textDecoration: "none" }}>
-            <span className='nav__logo--d'>MovieHub</span>
+            <img src={Logo} alt='logo' />
           </NavLink>
         </div>
         <div className='nav__humburger' onClick={handleClick}>
