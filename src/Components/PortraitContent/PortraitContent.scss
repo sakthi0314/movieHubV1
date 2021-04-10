@@ -12,10 +12,6 @@
 
   @include respond(tablet) {
     min-width: 12rem;
-  }
-
-  @include respond(mobile) {
-    min-width: 10rem;
     margin: 0 0.5rem;
   }
 
